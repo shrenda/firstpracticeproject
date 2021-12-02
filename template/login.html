@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Login</title>
+	<style type="text/css">
+		*{
+			box-sizing: border-box;
+			margin: 0;
+		}
+		.container{
+			height: 100vh;
+			width: 100%;
+			background-image: linear-gradient(to bottom right, #6699ff, #cc66ff);
+		}
+		.formheading{
+			border-bottom: 1px solid #ccc;
+			padding: 20px;
+			font-size: 23px;
+		}
+		p{
+			text-align: center;
+		}
+		.form-container{
+			border-radius: 5px;
+			width: 30%;
+			border: 1px solid #ccc;
+			background-color: white;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+		.first{
+			margin-bottom: 5px;
+		}
+		label{
+			font-size: 17px;
+			font-family: Arial, Helvetica, sans-serif;
+		}
+		input[type=email], input[type=password]{
+			border-radius: 5px;
+			font-size: 17px;
+			font-family: Arial, Helvetica, sans-serif;
+			width: 100%;
+			border: 1px solid #ccc;
+			padding: 12px 24px;
+		}
+		input[type=submit]{
+			font-family: Arial, Helvetica, sans-serif;
+			border: none;
+			background-color: #6699ff;
+			color: white;
+			padding: 12px 24px;
+			cursor: pointer;
+			font-size: 17px;
+			border-radius: 20px;
+		}
+		input[type=submit]:hover{
+			background-color: #cc66ff;
+		}
+		.row{
+			margin: 20px;
+		}
+		a{
+			text-decoration:none;
+			margin-left: 10px;
+			color: #6699ff;
+			font-size: 17px;
+			font-family: Arial, Helvetica, sans-serif;
+		}
+		a:hover{
+			color: #cc66ff;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="form-container">
+			<div class="formheading">
+				<p>Login</p>
+			</div>
+		
+			<form action="login" method="post">
+                {% csrf_token %}
+				<div class="row">
+					<div class="first">
+						<label>Email</label>
+					</div>
+					<div class="second">
+						<input type="email" name="email" placeholder="Enter Your Email">
+					</div>
+				</div>
+				<div class="row">
+					<div class="first">
+						<label>Password</label>
+					</div>
+					<div class="second">
+						<input type="password" name="password" placeholder="Enter Your Password">
+					</div>
+				</div>
+			<div class="row">
+					<input type="submit" name="submit" value="Login">
+					<a href="register2.html">Register</a>
+			</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

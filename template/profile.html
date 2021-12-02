@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Profile</title>
+	<style type="text/css">
+		*{
+			box-sizing: border-box;
+			margin: 0;
+			font-family: Arial, Helvetica, sans-serif;
+		}
+		header{
+			font-family: Arial, Helvetica, sans-serif;
+			position: relative;
+			height: 130px;
+			background-image: linear-gradient(to bottom right, #6699ff, #cc66ff);
+		}
+		nav{
+			height: 100%;
+			width: 100%;
+			display: flex;
+			align-items: flex-end;
+		}
+		nav a{
+			text-decoration: none;
+			color: white;
+			font-size: 20px;
+			display: block;
+			padding: 20px;
+		}
+		nav a:hover{
+			background-color: #6699ff;
+		}
+		h2{
+			position: absolute;
+			transform: translate(-50%, -50%);
+			top: 50%;
+			left: 50%;
+			color: white;
+		}
+		.container{
+			margin: 10px;
+			display: flex;
+		}
+		.section1{
+
+			flex: 100%;
+		}
+		.section2{
+			flex: 0%;
+		}
+		.section1 section{
+			border: 1px solid #ccc;
+			padding: 20px;
+			margin: 10px;
+			max-width: 100%;
+			border-radius: 5px;
+			box-shadow: 0 0 5px #ccc;
+		} 
+		section h3{
+			font-size: 20px;
+			margin-bottom: 10px;
+		}
+		section p{
+			font-size: 17px;
+			text-align: justify;
+		}
+		input[type=text]{
+			padding: 12px 20px;
+			width: 100%;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			margin-bottom: 10px;
+		}
+		textarea{
+			width: 100%;
+			padding: 12px 20px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			margin-bottom: 10px;
+		}
+		input[type=submit]{
+			border: none;
+			background-color: #6699ff;
+			color: white;
+			width: 100%;
+			padding: 12px 20px;
+			border-radius: 5px;
+			font-size: 20px;
+			cursor: pointer;
+		}
+		input[type=submit]:hover{
+			background-color: #cc66ff;
+		}
+	</style>
+</head>
+<body>
+<header>
+	<h2>The Dummy Site</h2>
+	<nav>
+			<a href="{% url 'home' %}">Home</a>
+			<a href="{% url 'profile' %}">Profile</a>
+			<a href="logout" style="align-self: flex-end;">Logout</a>
+	</nav>
+</header>
+<div class="container">
+	<div class="section1">
+		<div class="postcontainer">
+			<section>
+			<form action="{% url 'index' %}" method="post">
+                {% csrf_token %}
+				<div class="row">
+					<div class="first">
+						<h3>Title</h3>
+					</div>
+					<div class="second">
+						<input type="text" name="title">
+					</div>
+				</div>
+				<div class="row">
+					<div class="first">
+						<h3>Description</h3>
+					</div>
+					<div class="second">
+						<textarea cols="20" name="desc">
+							
+						</textarea>
+					</div>
+				</div>
+				<div class="row">
+					<input type="submit" name="submit" value="Post">
+				</div>
+			</form>
+			</section>
+		</div>
+		<div class="posts">
+            {% for post in obj %}
+			<section>
+				<h3 style="text-align: center; border-bottom: 1px solid #ccc; padding-bottom: 10px;">{{post.title}}</h3>
+				<p>
+                    {{post.desc}}
+				</p>
+			</section>
+            {% endfor %}
+		</div>
+	</div>
+	<div class="section2">
+		
+	</div>
+</div>
+<footer>
+	
+</footer>
+</body>
+</html>

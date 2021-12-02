@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        Sign Up form 
+    </title>
+    <style type="text/css">
+        *{
+            box-sizing: border-box;
+            margin: 0;
+        }
+        .container{
+            height: 100vh;
+            width: 100%;
+            background-image: linear-gradient(to bottom right, #6699ff, #cc66ff);
+        }
+        .form-container{
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 50%;
+            margin: auto;
+            position: absolute;
+            top: 50%;                
+            left: 50%;         
+            transform: translate(-50%, -50%);
+            box-shadow: 0px 0px 10px;
+        }
+        .formheader{
+            border-bottom: 1px solid #ccc;
+            text-align: center;
+            padding: 20px;
+            font-size: 23px;
+        }
+        label{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 17px;
+        }
+        .first{
+            margin-bottom: 5px;
+        }
+        input[type=text]{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 17px;
+            width: 100%;
+            padding: 12px 24px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type=email]{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 17px;
+            width: 100%;
+            padding: 12px 24px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type=password]{
+            font-family: Arial, Helvetica, sans-serif;
+            border-radius: 5px;
+            font-size: 17px;
+            width: 100%;
+            padding: 12px 24px;
+            border: 1px solid #ccc;
+        }
+        input[type=submit]
+        {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 17px;
+            width: 30%;
+            background-color: #6699ff;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 20px;
+            cursor: pointer;
+            color: white;
+        }
+        input[type=submit]:hover{
+            background-color: #cc66ff;
+        }
+        a{
+            text-decoration:none;
+            margin-left: 10px;
+            color: #6699ff;
+            font-size: 17px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        a:hover{
+            color: #cc66ff;
+        }
+        .row{
+            margin: 20px;
+        }
+        .row:after{
+            content: "";
+      display: table;
+      clear: both;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <div class="form-container">
+        <div class="formheader">
+            Register
+        </div>
+        <form action="register" method="post">
+            {% csrf_token %}
+            <div class="row">
+                <div class="first">
+                    <label>Name</label>
+                </div>
+                <div class="second">
+                    <input type="text" name="name" placeholder="Enter Your Name">
+                </div>
+            </div>
+            <div class="row">
+                <div class="first">
+                    <label>Email</label>
+                </div>
+                <div class="second">
+                    <input type="email" name="email" placeholder="Enter Your Email Address">
+                </div>
+            </div>
+            <div class="row">
+                <div class="first">
+                    <label>Username</label>
+                </div>
+                <div class="second">
+                    <input type="text" name="username" placeholder="Username">
+                </div>
+            </div>
+            <div class="row">
+                <div class="first">
+                    <label>Password</label>
+                </div>
+                <div class="second">
+                    <input type="password" name="password1" placeholder="Enter a Password">
+                </div>
+            </div>
+            <div class="row">
+                <div class="first">
+                    <label>Confirm Password</label>
+                </div>
+                <div class="second">
+                    <input type="password" name="password2" placeholder="Enter Password Again">
+                </div>
+            </div>
+            <div class="row">
+                <input type="submit" name="submit" value="Register">
+                <a href="login.html">Login</a>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>
